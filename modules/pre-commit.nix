@@ -115,6 +115,7 @@ let
         mkdir $out
         [ $? -eq 0 ] && exit $exitcode
       '';
+      dontUseCmakeConfigure = true;
     };
 
   failedAssertions = builtins.map (x: x.message) (builtins.filter (x: !x.assertion) config.assertions);
